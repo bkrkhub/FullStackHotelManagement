@@ -1,3 +1,4 @@
+---
 # 🏖️ Full Stack Hotel Management
 This project is a modern and secure hotel management system developed using React.js and Spring Boot. In the system, secure authentication is provided using Spring Security and JWT, and users are authorized according to their roles.
 
@@ -6,7 +7,11 @@ Users can perform full CRUD operations on reservation (Booking), room (Room) and
 In this way, the system facilitates hotel booking processes while offering a secure, scalable and user-friendly structure. 🚀
 
 ---
+## Preview 
 
+https://github.com/user-attachments/assets/ec361194-ff3b-4d07-8eaa-5236998d2962
+
+---
 ## 🌐 API ENDPOINTS
 
 | HTTP Method | Endpoint | Name |
