@@ -1,0 +1,134 @@
+.manage-bookings-page {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.manage-bookings-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+    margin-bottom: 50px;
+    font-style: italic;
+}
+
+/* Left Side - Header and Filter */
+.manage-bookings-content {
+    flex: 1;
+}
+
+/* Header */
+.manage-bookings-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: #007F86;
+    margin-bottom: 20px;
+}
+
+.filter-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.filter-label {
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+}
+
+.filter-input {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    width: 250px;
+}
+
+/* Right Side - Image */
+.manage-bookings-image {
+    flex: 1;
+    text-align: right;
+}
+
+.manage-bookings-image img {
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+/* Booking Cards */
+.booking-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.booking-result-item {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+.booking-result-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Booking Content */
+.booking-result-item p {
+    margin: 8px 0;
+    font-size: 1em;
+    color: #666;
+}
+
+.booking-result-item p strong {
+    color: #333;
+}
+
+.edit-room-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #007F86;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.edit-room-button:hover {
+    background-color: rgb(34, 80, 128);
+}
+
+@media screen and (max-width: 768px) {
+    .manage-bookings-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .manage-bookings-content {
+        margin-bottom: 20px;
+    }
+
+    .filter-section {
+        flex-direction: column;
+    }
+
+    .manage-bookings-image {
+        text-align: center;
+    }
+
+    .manage-bookings-image img {
+        width: 100%;
+        max-width: 350px;
+    }
+}

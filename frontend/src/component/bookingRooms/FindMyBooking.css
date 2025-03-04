@@ -1,0 +1,114 @@
+/* Find My Booking Page */
+.find-booking-page {
+    max-width: 75%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Search Container */
+.find-booking-search-container {
+    background: url('../../../public/assets/images/budapest.jpg') no-repeat center center/cover;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+    justify-content: center;
+    text-align: center;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 100%;
+    margin: 10px auto;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    font-style: italic;
+}
+
+/* Başlık Stili */
+.find-booking-h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+/* Special Group for Input and Button */
+.find-booking-input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Input group */
+.find-booking-input-group input {
+    padding: 12px;
+    font-size: 16px;
+    font-style: italic;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    outline: none;
+    width: 250px; 
+}
+
+/* Button Style */
+.find-booking-input-group button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-style: italic;
+    background-color: #54f3a1;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.find-booking-input-group button:hover {
+    background-color: #ff9800;
+    transform: scale(1.05);
+}
+
+/* Booking Details */
+.booking-details {
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* Details Card */
+.detail-card {
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.detail-card h3 {
+    font-size: 24px;
+    font-style: italic;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.detail-card p {
+    font-size: 16px;
+    font-style: italic;
+    color: #666;
+}
+
+/* Image */
+.room-image {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}

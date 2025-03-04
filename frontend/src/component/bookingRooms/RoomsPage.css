@@ -1,0 +1,61 @@
+/* Hero Section - Premium Header */
+.hero-section {
+  background: url('../../../public/assets/images/vacations.jpg') no-repeat center center/cover;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 100%;
+  margin: 40px auto;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.9);
+}
+
+/* Opacity effect in the background */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+/* Title (Will Remain Fixed) */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding-top: 100px;
+  margin-bottom: 40px; 
+}
+
+.hero-content h1 {
+  font-size: 42px;
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 00px;
+}
+
+
+.hero-content h3 {
+  font-size: 35px;
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 00px;
+}
+
+.room-filter-label {
+  font-size: 20px; 
+  font-weight: bold; 
+  color: white; 
+  margin-bottom: 10px;
+  display: block;
+  text-align: center;
+  font-style: italic;
+}

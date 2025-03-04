@@ -1,0 +1,166 @@
+.room-details-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    font-style: italic;
+    font-weight: bold;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.9);
+    text-align: center;
+    transition: 0.3s ease-in-out;
+}
+
+h2 {
+    font-size: 26px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #222;
+    letter-spacing: 1px;
+}
+
+/* Two-column layout */
+.room-details-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+/* Room Info */
+.room-info-section {
+    flex: 1;
+    text-align: center;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.room-image {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.room-info-section h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.room-info-section p {
+    font-size: 18px;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Booking Form Section */
+.room-booking-form {
+    flex: 1;
+    padding: 50px;
+    background: #ffffff;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.5);
+}
+
+.room-booking-form label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.room-booking-form input,
+.room-booking-form .react-datepicker__input-container input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-align: center;
+    background: #f5f5f5;
+    transition: all 0.3s ease-in-out;
+}
+
+.room-booking-form input:focus {
+    border-color: #007bff;
+    background: #fff;
+    outline: none;
+    box-shadow: 0px 2px 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Buttons */
+.confirm-booking-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+.confirm-booking-btn:hover {
+    background: #0056b3;
+    transform: scale(1.03);
+}
+
+/* ✅ Mevcut rezervasyon bilgileri */
+.room-info-section h4 {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+    text-transform: uppercase;
+}
+
+.room-info-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.room-info-section li {
+    font-size: 16px;
+    background: #e3f2fd;
+    padding: 12px;
+    margin: 5px 0;
+    border-radius: 6px;
+    color: #007bff;
+    font-weight: bold;
+    box-shadow: 0px 2px 5px rgba(0, 123, 255, 0.5);
+}
+
+/* ✅ Responsive tasarım */
+@media (max-width: 768px) {
+    .room-details-content {
+        flex-direction: column;
+    }
+
+    .room-info-section,
+    .room-booking-form {
+        width: 100%;
+    }
+
+    .room-image {
+        max-width: 100%;
+    }
+
+    .confirm-booking-btn {
+        font-size: 16px;
+        padding: 12px;
+    }
+}

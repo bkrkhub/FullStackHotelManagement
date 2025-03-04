@@ -1,0 +1,73 @@
+.add-room-container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 30px;
+    min-height: 70vh;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    font-style: italic;
+}
+
+h2 {
+    text-align: center;
+    color: #007F86;
+    margin-bottom: 20px;
+}
+
+.add-room-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.add-room-form-section {
+    width: 50%;
+}
+
+.add-room-form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    width: 35%;
+}
+
+input, textarea, select {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-style: italic;
+}
+
+.add-room-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.preview-section {
+    width: 45%;
+    text-align: center;
+}
+
+.room-photo-preview {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+}

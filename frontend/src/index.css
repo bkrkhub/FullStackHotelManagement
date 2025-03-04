@@ -1,0 +1,133 @@
+/* React-Datepicker width adjustment */
+.react-datepicker-wrapper {
+    width: 100% !important;
+}
+
+.react-datepicker__input-container {
+    width: 100% !important; 
+}
+
+.react-datepicker__input-container input {
+    width: 100% !important; 
+    max-width: 250px;
+    height: 50px;
+    padding: 12px 25px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+/* ROOM SEARCH RESULT */
+.book-now-button {
+  background-color: #007F86;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.edit-room-button {
+  background-color: #007F86;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.book-now-button:hover,
+.edit-room-button:hover {
+  opacity: 0.8;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+
+  .admin-actions {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .admin-button {
+      width: 100%;
+      padding: 12px;
+      font-size: 0.9em;
+  }
+
+  .form-group input {
+      padding: 6px;
+  }
+
+  .auth-container {
+      border-radius: 0;
+      border: none;
+      padding: 10px;
+  }
+
+  .auth-container h2 {
+      font-size: 24px;
+      color: #007F86;
+  }
+
+  .form-group input {
+      padding: 8px;
+  }
+
+  button[type="submit"] {
+      padding: 11px;
+  }
+
+  .header-banner h1 {
+      font-size: 20px;
+  }
+
+  .room-list-item-image {
+      width: 30%;
+  }
+
+  .book-now-button {
+      background-color: #007F86;
+      color: white;
+      border: none;
+      padding: 5px;
+      font-weight: 500;
+  }
+
+  .all-room-filter-div {
+      margin: 0px;
+  }
+
+  .service-section {
+      margin: 5px;
+      display: flex;
+      flex-wrap: wrap;
+  }
+
+  /*Navbar*/
+
+  .navbar {
+      padding: 5px 10px 5px 10px;
+  }
+
+  .navbar-ul {
+      justify-content: space-between;
+  }
+
+  .navbar-ul li {
+      flex: 1 1 22%;
+      /* Adjust to fit 4 items per row */
+      margin-left: 0;
+      margin-bottom: 10px;
+      text-align: center;
+  }
+
+  .navbar-ul li a {
+      display: block;
+  }
+
+}

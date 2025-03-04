@@ -1,0 +1,106 @@
+.manage-rooms-page {
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 20px;
+}
+
+.manage-rooms-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 100px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+}
+
+/* Left Side */
+.manage-rooms-content {
+    flex: 1;
+}
+
+/* Header */
+.manage-rooms-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: #007F86;
+    margin-bottom: 20px;
+}
+
+/* Filter Section */
+.filter-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Filter label */
+.filter-label {
+    font-size: 1em;
+    font-weight: bold;
+    color: black;
+}
+
+/* Select box */
+.filter-select {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Add Room Button */
+.add-room-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+    background-color: #37d829;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-room-button:hover {
+    background-color: #289d1e;
+}
+
+/* Right side - Visual */
+.manage-rooms-image {
+    flex: 1;
+    text-align: right;
+}
+
+.manage-rooms-image img {
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+/* Mobile compatibility */
+@media screen and (max-width: 768px) {
+    .manage-rooms-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .manage-rooms-content {
+        margin-bottom: 20px;
+    }
+
+    .filter-section {
+        flex-direction: column;
+    }
+
+    .manage-rooms-image {
+        text-align: center;
+    }
+
+    .manage-rooms-image img {
+        width: 100%;
+        max-width: 350px;
+    }
+}

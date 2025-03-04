@@ -1,0 +1,24 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Content */
+.content {
+    flex: 1; 
+}
+
+/* Footer */
+footer {
+    background-color: #444;
+    color: #f0e8e8;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    font-weight: 500;
+    font-style: italic;
+    /* Footer içeriğin üzerine binmemesi için */
+    position: relative;  
+    bottom: 0;
+}

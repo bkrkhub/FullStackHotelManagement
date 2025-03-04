@@ -1,0 +1,87 @@
+.room-results {
+    display: block;
+    flex-wrap: wrap;
+    margin: 50px 30px;
+    justify-content: center;
+  }
+  
+  .room-list-item {
+    width: calc(95% - 20px);
+    height: 20vh;
+    margin: 5px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .room-list-item-image {
+    width: 25%;
+    /* Adjust image width */
+    height: 20vh;
+  }
+  
+  .room-details {
+    flex: 1;
+    /* Take remaining space */
+    padding: 15px;
+    margin-left: 10px;
+  }
+  
+  .room-details h3 {
+    color: #007F86;
+    font-style: italic;
+  }
+
+  .room-details p {
+    color: black;
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  .room-detail-loading {
+    text-align: left;
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 20px;
+    color: #666;
+  
+  }
+  
+  .book-now-div {
+    align-self:center;
+  }
+  
+  .book-now-button {
+    background-color: #007F86;
+    color: white;
+    border: none;
+    font-style: italic;
+    margin-right: 10px;
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-right: 10px;
+  }
+  
+  .book-now-button:hover {
+    background-color: rgb(34, 80, 128)
+  }
+
+  .edit-room-button {
+    background-color: #007F86;
+    color: white;
+    border: none;
+    font-style: italic;
+    margin-right: 10px;
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-right: 10px;
+  }
+  
+  .edit-room-button:hover {
+    background-color: rgb(34, 80, 128)
+  }

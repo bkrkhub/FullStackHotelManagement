@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background covering the entire page */
+.register-page {
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../../../public/assets/images/register.jpg') no-repeat center center/cover;
+    font-style: italic;
+}
+
+/* Box with the registration form */
+.register-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 400px;
+}
+
+/* Header */
+.register-box h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Form Group */
+.register-box .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.register-box label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.register-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Register Button */
+.register-box button {
+    width: 100%;
+    padding: 12px;
+    background: #73e744;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    font-style: italic;
+}
+
+.register-box button:hover {
+    background: cyan;
+}
+
+/* Register Link */
+.register-box .register-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-box .register-link a {
+    color: #008080;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register-box .register-link a:hover {
+    text-decoration: underline;
+}

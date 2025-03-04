@@ -1,0 +1,82 @@
+/* ADMIN HOME STYLE */
+.admin-page {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 100px;
+    border-radius: 10px;
+    background-color: #f4f6f9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: calc(100vh - 150px);
+}
+
+/* Left Side - Content */
+.admin-content {
+    flex: 1;
+    text-align: left;
+    padding-right: 20px;
+}
+
+/* Right Side - Image */
+.admin-image {
+    flex: 1;
+    text-align: right;
+}
+
+.admin-image img {
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+/* Header */
+.welcome-message {
+    font-size: 2.2em;
+    color: #007F86;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Buttons and actions */
+.admin-actions {
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* General Button Style */
+.admin-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+}
+
+/* manage rooms button */
+.manage-rooms-button {
+    background-color: #18afb7;
+}
+
+.manage-rooms-button:hover {
+    background-color: #138c93;
+    transform: translateY(-2px);
+}
+
+/* manage bookings button */
+.manage-bookings-button {
+    background-color: #1f99e0;
+}
+
+.manage-bookings-button:hover {
+    background-color: #176da8;
+    transform: translateY(-2px);
+}
