@@ -38,6 +38,7 @@ public class EntityConverterAndCodeGenerator {
 
         userDTO.setId(user.getId());
         userDTO.setName(user.getName());
+        userDTO.setEmail(user.getEmail());
         userDTO.setPhoneNumber(user.getPhoneNumber());
         userDTO.setRole(user.getRole());
 

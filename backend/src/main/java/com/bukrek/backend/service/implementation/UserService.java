@@ -9,6 +9,7 @@ import com.bukrek.backend.repository.UserRepository;
 import com.bukrek.backend.service.interfaces.UserServiceInterface;
 import com.bukrek.backend.utils.EntityConverterAndCodeGenerator;
 import com.bukrek.backend.utils.JWTUtils;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -84,7 +85,6 @@ public class UserService implements UserServiceInterface {
             response.setStatusCode(500);
             response.setMessage("Error occurred during user login " + e.getMessage());
         }
-
         return response;
     }
 
@@ -128,6 +128,41 @@ public class UserService implements UserServiceInterface {
         } catch (Exception e) {
             response.setStatusCode(500);
             response.setMessage("Error getting all users " + e.getMessage());
+        }
+        return response;
+    }
+
+    @Override
+    @Transactional
+    public Response updateUser(Long userId, String name, String phoneNumber, String password) {
+        Response response = new Response();
+        try {
+            User user = userRepository.findById(userId)
+                    .orElseThrow(() -> new GlobalException("User Not Found!"));
+
+            if (name != null && !name.isBlank()) user.setName(name);
+            if (phoneNumber != null && !phoneNumber.isBlank()) user.setPhoneNumber(phoneNumber);
+
+            // If the password is not empty, update it by hashing
+            if (password != null && !password.isBlank()) {
+                System.out.println("✅ Gelen yeni şifre (düz metin): " + password);
+                String hashedPassword = passwordEncoder.encode(password);
+                System.out.println("🔐 Hashlenmiş yeni şifre: " + hashedPassword);
+                user.setPassword(hashedPassword);
+            } else {
+                System.out.println("⚠️ Şifre değişmedi, eski şifre korunuyor.");
+            }
+
+            userRepository.save(user);
+            System.out.println("✅ Kullanıcı başarıyla kaydedildi: " + user);
+
+            UserDTO userDTO = EntityConverterAndCodeGenerator.convertUserEntityToUserDTO(user);
+            response.setStatusCode(200);
+            response.setMessage("Successful :)");
+            response.setUser(userDTO);
+        } catch (Exception e) {
+            response.setStatusCode(500);
+            response.setMessage("Error occurred when updating user: " + e.getMessage());
         }
         return response;
     }

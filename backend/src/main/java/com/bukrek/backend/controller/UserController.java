@@ -10,6 +10,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -28,6 +30,22 @@ public class UserController {
     public ResponseEntity<Response> getUserById(@PathVariable("userId") String userId) {
         Response response = userServiceInterface.getUserById(userId);
         return ResponseEntity.status(response.getStatusCode()).body(response);
+    }
+
+    @PutMapping("/update/{userId}")
+    @PreAuthorize("isAuthenticated()")
+    public ResponseEntity<Response> updateUser(@PathVariable Long userId, @RequestBody Map<String, Object> requestData) {
+        System.out.println("🔍 API'ye frontend'den istek geldi!");
+
+        // We retrieve values manually from JSON
+        String name = requestData.containsKey("name") ? (String) requestData.get("name") : null;
+        String phoneNumber = requestData.containsKey("phoneNumber") ? (String) requestData.get("phoneNumber") : null;
+        String password = requestData.containsKey("password") ? (String) requestData.get("password") : null;
+
+        System.out.println("🔍 Backend'e gelen password değeri: " + (password != null ? password : "Şifre değiştirilmedi"));
+
+        Response response = userServiceInterface.updateUser(userId, name, phoneNumber, password);
+        return ResponseEntity.ok(response);
     }
 
     @DeleteMapping("/delete/{userId}")

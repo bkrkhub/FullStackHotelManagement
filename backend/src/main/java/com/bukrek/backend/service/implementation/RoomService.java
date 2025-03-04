@@ -132,7 +132,7 @@ public class RoomService implements RoomServiceInterface {
             response.setMessage(e.getMessage());
         } catch (Exception e) {
             response.setStatusCode(500);
-            response.setMessage("Error occurred when deleting that room " + e.getMessage());
+            response.setMessage("Error occurred when updating that room " + e.getMessage());
         }
         return response;
     }
@@ -167,6 +167,12 @@ public class RoomService implements RoomServiceInterface {
         Response response = new Response();
 
         try {
+            if (checkInDate.isAfter(checkOutDate)) {
+                response.setStatusCode(400);
+                response.setMessage("Check-in date must be before the check-out date!");
+                return response;
+            }
+
             List<Room> availableRooms = roomRepository.findAvailableRoomsByDateAndTypes(
                     checkInDate, checkOutDate, roomType);
 
@@ -178,8 +184,7 @@ public class RoomService implements RoomServiceInterface {
             response.setRoomList(roomDTOList);
         } catch (Exception e) {
             response.setStatusCode(500);
-            response.setMessage("Error occurred when getting available rooms by date and type "
-                    + e.getMessage());
+            response.setMessage("Error occurred when getting available rooms by date and type " + e.getMessage());
         }
         return response;
     }

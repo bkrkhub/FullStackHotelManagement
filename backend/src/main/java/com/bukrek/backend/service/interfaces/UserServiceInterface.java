@@ -16,6 +16,8 @@ public interface UserServiceInterface {
 
     Response deleteUser(String userId);
 
+    Response updateUser(Long userId, String name, String phoneNumber, String password);
+
     Response getUserById(String userId);
 
     Response getMyInfo(String email);

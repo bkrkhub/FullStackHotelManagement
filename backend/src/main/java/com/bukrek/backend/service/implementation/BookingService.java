@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -72,6 +73,7 @@ public class BookingService implements BookingServiceInterface {
         return response;
     }
 
+    @Transactional
     @Override
     public Response findBookingByConfirmationCode(String confirmationCode) {
         Response response = new Response();
@@ -120,6 +122,63 @@ public class BookingService implements BookingServiceInterface {
         return response;
     }
 
+    @Transactional
+    @Override
+    public Response updateBooking(Long bookingId, LocalDate checkInDate, LocalDate checkOutDate,
+                                  int numOfAdults, int numOfChildren, Long roomId) {
+        Response response = new Response();
+        try {
+            // Find the reservation to update
+            Booking booking = bookingRepository.findById(bookingId)
+                    .orElseThrow(() -> new GlobalException("Booking Not Found!"));
+
+            // Check the logical correctness of the dates
+            if (checkOutDate.isBefore(checkInDate)) {
+                throw new IllegalArgumentException("Check-out date mustn't be before the check-in date.");
+            }
+
+            // Bring new room information
+            Room newRoom = roomRepository.findById(roomId)
+                    .orElseThrow(() -> new GlobalException("Room Not Found!"));
+
+            // Check if the selected room is available for new dates
+            List<Booking> existingBookings = newRoom.getBookings();
+
+            // Check room availability using the current function
+            Booking tempBooking = new Booking();
+            tempBooking.setCheckInDate(checkInDate);
+            tempBooking.setCheckOutDate(checkOutDate);
+
+            if (!roomIsAvailable(tempBooking, existingBookings)) {
+                throw new GlobalException("Room is not available for the selected date range!");
+            }
+
+            // Apply updates
+            booking.setCheckInDate(checkInDate);
+            booking.setCheckOutDate(checkOutDate);
+            booking.setNumOfAdults(numOfAdults);
+            booking.setNumOfChildren(numOfChildren);
+            booking.setRoom(newRoom);
+            bookingRepository.save(booking);
+
+            // Convert the updated booking to DTO and prepare the response
+            BookingDTO updatedBookingDTO = EntityConverterAndCodeGenerator
+                    .convertBookingEntityToBookingDTOWithBookedRooms(booking, true);
+            response.setStatusCode(200);
+            response.setMessage("Booking updated successfully.");
+            response.setBooking(updatedBookingDTO);
+
+        } catch (GlobalException e) {
+            response.setStatusCode(404);
+            response.setMessage(e.getMessage());
+        } catch (Exception e) {
+            response.setStatusCode(500);
+            response.setMessage("Error occurred while updating booking: " + e.getMessage());
+        }
+        return response;
+    }
+
+
     @Override
     public Response cancelBooking(Long bookingId) {
         Response response = new Response();
@@ -144,24 +203,19 @@ public class BookingService implements BookingServiceInterface {
     }
 
     private boolean roomIsAvailable(Booking bookingRequest, List<Booking> existingBookings) {
+        System.out.println("Checking availability for room...");
+        System.out.println("Check-in Date: " + bookingRequest.getCheckInDate());
+        System.out.println("Check-out Date: " + bookingRequest.getCheckOutDate());
+        System.out.println("Existing Bookings: " + existingBookings.size());
+
+        for (Booking existingBooking : existingBookings) {
+            System.out.println("Existing Booking - Check-in: " + existingBooking.getCheckInDate() +
+                    ", Check-out: " + existingBooking.getCheckOutDate());
+        }
+
         return existingBookings.stream()
                 .noneMatch(existingBooking ->
-                        bookingRequest.getCheckInDate().equals(existingBooking.getCheckInDate())
-                                || bookingRequest.getCheckOutDate().isBefore(existingBooking.getCheckOutDate())
-                                || (bookingRequest.getCheckInDate().isAfter(existingBooking.getCheckInDate())
-                                && bookingRequest.getCheckInDate().isBefore(existingBooking.getCheckOutDate()))
-                                || (bookingRequest.getCheckInDate().isBefore(existingBooking.getCheckInDate())
-
-                                && bookingRequest.getCheckOutDate().equals(existingBooking.getCheckOutDate()))
-                                || (bookingRequest.getCheckInDate().isBefore(existingBooking.getCheckInDate())
-
-                                && bookingRequest.getCheckOutDate().isAfter(existingBooking.getCheckOutDate()))
-
-                                || (bookingRequest.getCheckInDate().equals(existingBooking.getCheckOutDate())
-                                && bookingRequest.getCheckOutDate().equals(existingBooking.getCheckInDate()))
-
-                                || (bookingRequest.getCheckInDate().equals(existingBooking.getCheckOutDate())
-                                && bookingRequest.getCheckOutDate().equals(bookingRequest.getCheckInDate()))
-                );
+                        bookingRequest.getCheckInDate().isBefore(existingBooking.getCheckOutDate())
+                                && bookingRequest.getCheckOutDate().isAfter(existingBooking.getCheckInDate()));
     }
 }
